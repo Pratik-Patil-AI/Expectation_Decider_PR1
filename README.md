@@ -1,5 +1,19 @@
+# 📊 Expectation Decider: Probability & Statistics Analytics Report
+
+> **Probability & statistics analysis predicting student exam outcomes — empirical/theoretical probability, hypergeometric distribution, Venn diagrams, contingency tables, and Bayes' Theorem.**
+
+[![Python](https://img.shields.io/badge/Python-Analysis-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Jupyter](https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
+[![Status](https://img.shields.io/badge/Project-Completed-success?style=for-the-badge)]()
+[![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+
+---
+
 # 🎥 Video Explanation
-**[▶️ Watch the video walkthrough here — paste your Google Drive / YouTube link]**
+
+[![Watch the video](https://img.youtube.com/vi/LgM7wWTBUOo/maxresdefault.jpg)](https://youtu.be/LgM7wWTBUOo)
+
+**[▶️ Or click here to watch directly](https://youtu.be/LgM7wWTBUOo)**
 
 ---
 
@@ -30,16 +44,30 @@ Predicting whether a student passes a competitive mathematics exam, using probab
 | `final_exam_pass` | Result of the competitive exam (Pass/Fail) |
 
 ## ✅ Tasks Covered in the Notebook
-
-1. **Understanding the Basics** — definition of probability, key terminology, three example events from the dataset
-2. **Types of Events** — empirical vs. theoretical probability, calculated from the data
-3. **Random Variable & Probability Distribution** — hypergeometric distribution of "students passing out of 3 randomly selected," with mean and variance
-4. **Venn Diagram** — study hours vs. attendance, with overlap
-5. **Contingency Table** — group discussion vs. exam result, with joint / marginal / conditional probabilities
-6. **Understanding Relationships** — conditional probability intuition, independence check
-7. **Bayes' Theorem** — probability of passing given high attendance
-
-Each section closes with a final summary of which factors most affect the probability of passing.
+ 
+### 1. Understanding the Basics
+Defines probability from first principles (a measure between 0 and 1 of how likely an event is) and walks through the core vocabulary — experiment, sample space, event, mutually exclusive events, independent events, and conditional probability — with each term grounded in a concrete example from the dataset. Identifies three probability events directly from the data: a student studying more than 10 hrs/week, a student attending more than 80% of classes, and a student passing the final exam.
+ 
+### 2. Types of Events — Empirical vs. Theoretical Probability
+Distinguishes the two ways probability gets calculated. **Empirical probability** is computed as observed relative frequency: P(Pass) = 88/200 = 0.44, taken directly from the 200 recorded outcomes. **Theoretical probability** is computed from the classical (equally-likely-outcomes) model: P(study_hours > 10) = 74/200 = 0.37, by simply counting favourable vs. total outcomes rather than relying on the exam result.
+ 
+### 3. Random Variable & Probability Distribution
+Defines the random variable **X = "number of students who pass, out of 3 randomly selected (without replacement)"** and identifies it as following a **hypergeometric distribution** (since sampling is without replacement from a finite population of 200). Builds the full probability distribution table for X = 0, 1, 2, 3, then derives the **mean E[X] ≈ 1.32** and **variance Var[X] ≈ 0.73**, with an interpretation of what these values mean in context.
+ 
+### 4. Venn Diagram in Probability
+Constructs a two-set Venn diagram: **Set A** = students studying more than 10 hrs/week (74 students), **Set B** = students with attendance above 80% (77 students), with the **overlap (A ∩ B)** = 26 students satisfying both conditions — rendered visually with `matplotlib-venn` and generated directly from the dataset rather than hardcoded.
+ 
+### 5. Contingency Table & Probability Calculations
+Cross-tabulates `group_discussion` (Yes/No) against `final_exam_pass` (Pass/Fail) into a full contingency table with row/column totals. From it, calculates the **joint probability** P(Group Discussion = Yes ∩ Pass) = 0.295, the **marginal probability** P(Pass) = 0.44, and the **conditional probability** P(Pass | Group Discussion = Yes) = 0.4876.
+ 
+### 6. Understanding Relationships
+Explains the intuition behind conditional probability in plain language — narrowing the sample space to only the sub-group that satisfies the given condition, then asking what fraction of that smaller group satisfies the event of interest. Runs a formal **independence check** (comparing P(A∩B) to P(A)·P(B)) to determine that group-discussion participation and passing the exam are **dependent**, not independent or mutually exclusive events.
+ 
+### 7. Bayes' Theorem Application
+Applies Bayes' Theorem to a real inference question: given P(High Attendance | Pass) = 0.70, P(High Attendance | Fail) = 0.40, and P(High Attendance) = 0.60, calculates **P(Pass | High Attendance) ≈ 0.5833 (58.33%)** — showing how observing high attendance updates the prior 50% belief of passing upward, with the full formula, substitution, and interpretation shown step-by-step.
+ 
+### Final Summary
+Closes with a consolidated, data-driven summary of which factors most affect the probability of passing — highlighting attendance and study hours as the strongest positive predictors, with group-discussion participation as a secondary, statistically dependent factor.
 
 ## 🛠️ How to Run
 
@@ -48,10 +76,15 @@ pip install pandas numpy matplotlib matplotlib-venn scipy
 jupyter notebook Expectation_Decider.ipynb
 ```
 
-## 📌 Notes
+## 👨‍💻 Author
 
-- The dataset was generated programmatically for this project (per the assignment's instructions) with realistic dependencies between study hours, attendance, test scores, group discussion, and the pass outcome.
-- All calculations in the theory PDF are reproduced and verified live in the notebook.
+**Pratik Patil**
+
+---
+
+## ⭐ Support
+
+Star ⭐ this repo if you like it!
 
 ---
 **Expectation Decider** · Mathematics & Advanced Statistics
